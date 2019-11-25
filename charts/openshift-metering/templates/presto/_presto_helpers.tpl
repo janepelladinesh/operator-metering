@@ -49,28 +49,28 @@ connector.name=memory
 {{- if .Values.presto.spec.config.connectors.prometheus.enabled }}
 {{- with .Values.presto.spec.config.connectors.prometheus -}}
 connector.name=prometheus
-{{- if .uri }}
-prometheus-uri={{ .uri }}
+{{- if .config.uri }}
+prometheus-uri={{ .config.uri }}
 {{- else }}
 prometheus-uri=http://localhost:9090
 {{- end }}
-{{- if .chunkSizeDuration }}
-query-chunk-size-duration={{ .chunkSizeDuration }}
+{{- if .config.chunkSizeDuration }}
+query-chunk-size-duration={{ .config.chunkSizeDuration }}
 {{- else }}
 query-chunk-size-duration=1h
 {{- end }}
-{{- if .maxQueryRangeDuration }}
-max-query-range-duration={{ .maxQueryRangeDuration }}
+{{- if .config.maxQueryRangeDuration }}
+max-query-range-duration={{ .config.maxQueryRangeDuration }}
 {{- else }}
 max-query-range-duration=1d
 {{- end }}
-{{- if .cacheDuration }}
-cache-duration={{ .cacheDuration }}
+{{- if .config.cacheDuration }}
+cache-duration={{ .config.cacheDuration }}
 {{- else }}
 cache-duration=30s
 {{- end }}
-{{- if .bearer.tokenFile }}
-bearer-token-file={{ .bearer.tokenFile }}
+{{- if .auth.useServiceAccountToken }}
+bearer-token-file={{ .auth.bearerTokenFile }}
 {{- end }} {{- /* end-if */ -}}
 {{- end }} {{- /* end-with */ -}}
 {{- end }} {{- /* end-if-enabled */ -}}

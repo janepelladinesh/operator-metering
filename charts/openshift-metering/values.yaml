@@ -545,13 +545,15 @@ presto:
 
         extraConnectorFiles: []
         prometheus:
-          enabled: false
-          uri: ""
-          chunkSizeDuration: null
-          maxQueryRangeDuration: null
-          cacheDuration: null
-          bearer:
-            tokenFile: null
+          enabled: true
+          config:
+            uri: ""
+            chunkSizeDuration: null
+            maxQueryRangeDuration: null
+            cacheDuration: null
+          auth:
+            bearerTokenFile: null
+            useServiceAccountToken: true
 
     coordinator:
       affinity:
@@ -583,9 +585,6 @@ presto:
           reservedCodeCacheSize: null
           maxCachedBufferSize: null
           maxDirectMemorySize: null
-        logLevel: info
-        taskMaxWorkerThreads: null
-        taskMinDrivers: null
         logLevel: info
         taskMaxWorkerThreads: null
         taskMinDrivers: null
