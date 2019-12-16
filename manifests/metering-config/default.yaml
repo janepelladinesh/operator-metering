@@ -1,7 +1,7 @@
 apiVersion: metering.openshift.io/v1
 kind: MeteringConfig
 metadata:
-  name: "operator-metering"
+  name: monitoring
 spec:
   storage:
     type: hive
