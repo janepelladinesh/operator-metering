@@ -24,12 +24,12 @@ spec:
     #     rootDirectory: "/testDir"
     #
     # # Use a ReadWriteMany PersistentVolumeClaim as storage
-    # hive:
-    #   type: "sharedPVC"
-    #   sharedPVC:
+      hive:
+        type: "sharedPVC"
+        sharedPVC:
     #     # change claimName to your PVC's name
-    #     claimName: "metering-nfs"
+          claimName: "metering-nfs"
     #     # uncomment the lines below to provision a new PVC using the specified storageClass.
-    #     # createPVC: true
-    #     # storageClass: "my-nfs-storage-class"
-    #     # size: 5Gi
+          createPVC: true
+          storageClass: "my-nfs-storage-class"
+          size: 5Gi
